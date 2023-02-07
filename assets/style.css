@@ -1,0 +1,14 @@
+.banner {
+    color: antiquewhite;
+    background: linear-gradient(to right, rgb(18, 146, 118),green);
+    display: flex;
+    text-align: center;
+    margin: 15px;
+    margin: 12px;
+}
+
+/* .citySearchbar {
+    color:black;
+    box-shadow: 12px;
+    border: 1px solid;
+} */
