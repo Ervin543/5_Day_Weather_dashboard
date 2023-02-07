@@ -33,28 +33,36 @@ function weatherapi(event) {
     })
 };
 
+
+
 weatherSearchButton.addEventListener('click', weatherapi)
 
 function useWeatherData (weatherData) {
-    
-    const name = weatherData.list[0].main.name;
-    const temp = weatherData.list[0].main.temp;
-    const windSpeed = weatherData.list[0].wind.speed;
-    const humidity = weatherData.list[0].main.humidity;
-    
-    
-    
-    const cityNameEl = document.querySelector('.cityName');
-    const tempEl = document.querySelector('.temp');
-    const windSpeedEl = document.querySelector('.windSpeed');
-    const humidityEl = document.querySelector('.humidity');
-    
-    
-    
-    cityNameEl.textContent = `cityName: ${name}`
-    tempEl.textContent = `temp: ${temp}`;
-    windSpeedEl.textContent = `wind.speed: ${windSpeed}`;
-    humidityEl.textContent = `humidity: ${humidity}`;
+
+        const list = weatherData.list;
+        for (let i = 0; i < list.length; i += 8) {
+          const name = weatherData.city.name;
+          const temp = list[i].main.temp;
+          const windSpeed = list[i].wind.speed;
+          const humidity = list[i].main.humidity;
+      
+          const cityNameEl = document.createElement('p');
+          const tempEl = document.createElement('p');
+          const windSpeedEl = document.createElement('p');
+          const humidityEl = document.createElement('p');
+      
+          cityNameEl.textContent = `City Name: ${name}`
+          tempEl.textContent = `Temp: ${temp}`;
+          windSpeedEl.textContent = `Wind Speed: ${windSpeed}`;
+          humidityEl.textContent = `Humidity: ${humidity}`;
+      
+          document.body.appendChild(cityNameEl);
+          document.body.appendChild(tempEl);
+          document.body.appendChild(windSpeedEl);
+          document.body.appendChild(humidityEl);
+        
+      }
+      
     
     
     
